@@ -1,6 +1,6 @@
 # USBeaver - HID-Powered Hacking on a Budget!
 
-> photo of a usbeaver goes here
+![A USBeaver with 3d-printed case](./photo.png)
 
 The USBeaver project aims to provide a simple and educational platform for building scripted HID devices. These tools can be used to execute paylaods autonomously during authorized pentests, or as a multitool for sysadmining headless systems with physical access.
 
